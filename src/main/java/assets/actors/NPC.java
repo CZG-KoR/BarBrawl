@@ -17,7 +17,7 @@ public class NPC extends GameAsset{
     boolean quest;
     
     //npc der random begrüßung/beleidigung sagt, der aber getötet werden kann und evtl was dropt
-    public NPC(int x, int y, Image img, String name, int healthpoints, String[] inventar) {moin
+    public NPC(int x, int y, Image img, String name, int healthpoints, String[] inventar) {
         super(x, y, img, name)
         Random r = new Random();
         this.greetings = r.nextInt(greetings.length()); //unterschiedliche, random greetings werden generiert
