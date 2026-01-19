@@ -20,7 +20,7 @@ public class NPC extends GameAsset{
     public NPC(int x, int y, Image img, String name, int healthpoints, String[] inventar) {
         super(x, y, img, name)
         Random r = new Random();
-        this.greetings = r.nextInt(greetings.length()); //unterschiedliche, random greetings werden generiert
+        this.greetings = greetings[r.nextInt(greetings.length())]; //unterschiedliche, random greetings werden generiert
         this.alive = true;
         this.healthpoints = healthpoints;
         this.inventar = inventar;
