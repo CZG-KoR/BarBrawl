@@ -41,38 +41,68 @@ public class NPC extends GameAsset {
     public void WhereToMove() {
         //npcs bewegen sich zufällig durch den Raum
         Random r = new Random();
-        int länge = r.nextInt(100);
+        int length = r.nextInt(10);
         int richtung = r.nextInt(4);
+
+        int xend; 
+        int yend;
+
+        int deltax;
+        int deltay;
 
         
         //bewegung in positive x-Richtung
         if (richtung == 1) {
-            if (room.isWalkable(x + 1, y)) {}
-                walk();
+            xend=x+length;
+            yend=y;
+            deltax = 1;
+            deltay=0;
             
         }
 
         //bewegung in negative x-Richtung
         if (richtung == 2) {
-            if (room.isWalkable(x - 1, y)) {
-
-            }
+            xend=x-length;
+            yend=y;
+            deltax=-1;
+            deltay=0;
+            move(
         }
 
         //bewegung in positive y-Richtung
         if (richtung == 3) {
-            if (room.isWalkable(x, y + 1)) {
-
-            }
+           yend = y+length;
+            xend=x;
+            deltay=1;
+            deltax==;
         }
 
         //bewegung in negative y-Richtung
         if (richtung == 4) {
-            if (room.isWalkable(x, y - 1)) {
-
-            }
+            yend = y-length;
+            xend=x;
+            deltay=-1;
+            deltax=0;
         }
+        move(xend, yend, dektax, deltay);
 
+    }
+
+
+    public void move(int xend, int yend, int deltax, int deltay)
+    {    if(x!= xend){
+        x=x+deltax;
+    }
+         if(y!=yend){
+         y=y + deltay;
+    }
+
+     if(y=yend && x 0 xend){
+
+        Random r =new Random;
+        wait(r.nextInt(1000));
+        WhereToMove();
+     }
     }
 
     //ausgabe des zugewiesenen textes über die konsole
