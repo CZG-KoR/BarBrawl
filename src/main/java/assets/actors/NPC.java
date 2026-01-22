@@ -37,8 +37,13 @@ public class NPC extends GameAsset {
         this.quest = true;
     }
 
-    //wird irgendwann aufgerufen
+    //wird einmal am anfang aufgerufen
     public void WhereToMove() {
+        //questNPCs bewegen sich nicht, damit man sie leicht wiederfinden kann
+        if(quest != true)
+        {break()}
+
+        
         //npcs bewegen sich zufällig durch den Raum
         Random r = new Random();
         int length = r.nextInt(10);
@@ -84,11 +89,13 @@ public class NPC extends GameAsset {
             deltay=-1;
             deltax=0;
         }
+        //weitergeben zufälliger variablen an move-methode
         move(xend, yend, dektax, deltay);
 
     }
 
 
+    //änderung der koordinaten entsorechend der zufälligen variablen
     public void move(int xend, int yend, int deltax, int deltay)
     {    if(x!= xend){
         x=x+deltax;
@@ -97,7 +104,8 @@ public class NPC extends GameAsset {
          y=y + deltay;
     }
 
-     if(y=yend && x 0 xend){
+     //abbruch wenn zielkoordinate erreicht, zufällige wartezeit bis nächste bewegung
+     if(y=yend && x = xend){
 
         Random r =new Random;
         wait(r.nextInt(1000));
@@ -129,6 +137,8 @@ public class NPC extends GameAsset {
     //bei tod enemy wird nach einiger zeit ein neuer gespawnt
     public void isAlive(NPC npc) {
         if (healthpoints == 0) {
+            Rabdom r=new Random;
+            wait(r.nextInt(1000);
             NPC.generate();   //methode muss noch angelegt werden
         }
     }
