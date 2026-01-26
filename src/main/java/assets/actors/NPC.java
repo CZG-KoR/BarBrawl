@@ -109,7 +109,7 @@ public class NPC extends GameAsset {
     }
 
      //abbruch wenn zielkoordinate erreicht, zufällige wartezeit bis nächste bewegung
-     if(y=yend && x = xend){
+     if(y==yend && x == xend){
          isMoving = False;
 
         Random r =new Random;
