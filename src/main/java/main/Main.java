@@ -16,8 +16,7 @@ public class Main {
         // hier werden zwilling verglichen...
     }
 
-    public Enemy createEnemy(NPC npc) {
-        Enemy e = new Enemy(npc.getX(), npc.getY(), npc.getImg(), npc.getName(), 10, 20);
-        return (e);
+    public static Enemy createEnemy(NPC npc) {
+        return new Enemy(npc.getX(), npc.getY(), npc.getImg(), npc.getName(), 10, 20);
     }
 }
