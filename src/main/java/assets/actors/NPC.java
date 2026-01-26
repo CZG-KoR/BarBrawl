@@ -14,7 +14,7 @@ public class NPC extends GameAsset {
     boolean alive;
     String[] greetings;
     String greeting;
-    boolean quest;
+    boolean quest, isMoving;
 
     //npc der random begrüßung/beleidigung sagt, der, wenn angeschlagen, zurück angreift und zum enemy wird
     public NPC(int x, int y, Image img, String name, int healthpoints, String[] inventar) {
@@ -25,6 +25,7 @@ public class NPC extends GameAsset {
         this.healthpoints = healthpoints;
         this.inventar = inventar;
         this.quest = false;
+        this.isMoving=false;
     }
 
     //npc mit text, der zu questline gehört, kann noch getötet werden --> evtl ändern
@@ -89,12 +90,15 @@ public class NPC extends GameAsset {
             deltay=-1;
             deltax=0;
         }
-        //weitergeben zufälliger variablen an move-methode
-        move(xend, yend, dektax, deltay);
+
+        //stellt sicher, dass charakter sich bewegt
+        isMoving=True;
+        
 
     }
 
 
+    //wird so: move(xend, yend, dektax, deltay); aufgerufen, wenn isMoving true ist
     //änderung der koordinaten entsorechend der zufälligen variablen
     public void move(int xend, int yend, int deltax, int deltay)
     {    if(x!= xend){
@@ -106,6 +110,7 @@ public class NPC extends GameAsset {
 
      //abbruch wenn zielkoordinate erreicht, zufällige wartezeit bis nächste bewegung
      if(y=yend && x = xend){
+         isMoving = False;
 
         Random r =new Random;
         wait(r.nextInt(1000));
