@@ -98,6 +98,11 @@ public class NPC extends GameAsset {
     //änderung der koordinaten entsprechend der zufälligen variablen
     public void move(int xend, int yend, int deltax, int deltay) {
 
+
+        if(wait != 0)
+        {wait--;
+         return;
+        }
         //abbruch wenn zielkoordinate erreicht
         if (this.getY() == yend && this.getX() == xend) {
             stopMoving();
@@ -121,9 +126,12 @@ public class NPC extends GameAsset {
         //abbruch wenn zielkoordinate erreicht, zufällige wartezeit bis nächste bewegung
 
         isMoving = false;
+        deltax=0;
+        deltay=0;
+        int wait = 30;
 
-        Random r = new Random();
-        wait(r.nextInt(1000));
+        //Random r = new Random();
+        //wait(r.nextInt(1000));
         WhereToMove();
 
     }
