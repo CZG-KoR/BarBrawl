@@ -117,14 +117,15 @@ public class NPC extends GameAsset {
         }
 
         //abbruch wenn nächstes feld ein hinderniss ist
-        if (room.isWalkable(this.getX() + deltax, this.getY() + deltay)) {
+        //hier auf room.isWalkable-Methode zugreifen --> in jetziger version noch nicht drin
+        /*if (room.isWalkable(this.getX() + deltax, this.getY() + deltay)) {
             //damit npc nicht mehr seine koordinaten verändert
-            isMoving = false;
+           isMoving = false;
             Random r = new Random();
             wait = r.nextInt(100);
             WhereToMove();
             
-        }
+        }*/
 
         if (this.getX() != xend) {
             this.setX(this.getX() + deltax);
@@ -183,3 +184,4 @@ public class NPC extends GameAsset {
     }
 
 }
+
