@@ -98,19 +98,32 @@ public class NPC extends GameAsset {
     //änderung der koordinaten entsprechend der zufälligen variablen
     public void move(int xend, int yend, int deltax, int deltay) {
 
-
+        int wait =0;
+        
+        //prüfen ob charakter grade steht (wartet)
         if(wait != 0)
+        //runterzählen, bis gewisse zeit vergangen ist, währenddessen hört methode hier auf
         {wait--;
          return;
         }
         //abbruch wenn zielkoordinate erreicht
         if (this.getY() == yend && this.getX() == xend) {
-            stopMoving();
+            //damit npc nicht mehr seine koordinaten verändert
+            isMoving = false;
+            Random r = new Random();
+            wait = r.nextInt(100);
+            WhereToMove();
+            
         }
 
         //abbruch wenn nächstes feld ein hinderniss ist
         if (room.isWalkable(this.getX() + deltax, this.getY() + deltay)) {
-            stopMoving();
+            //damit npc nicht mehr seine koordinaten verändert
+            isMoving = false;
+            Random r = new Random();
+            wait = r.nextInt(100);
+            WhereToMove();
+            
         }
 
         if (this.getX() != xend) {
@@ -122,19 +135,6 @@ public class NPC extends GameAsset {
 
     }
 
-    public void stopMoving() {
-        //abbruch wenn zielkoordinate erreicht, zufällige wartezeit bis nächste bewegung
-
-        isMoving = false;
-        deltax=0;
-        deltay=0;
-        int wait = 30;
-
-        //Random r = new Random();
-        //wait(r.nextInt(1000));
-        WhereToMove();
-
-    }
 
     //ausgabe des zugewiesenen textes über die konsole
     public void talk() {
