@@ -174,7 +174,7 @@ public class NPC extends GameAsset {
             }
 
             //damit irgendwann ein neuer NPC spawnt
-            Random r = new Random();
+            //Random r = new Random();
             //das passiert übergeordnet: muss ich mich nicht drum kümmern
             //wait(r.nextInt(1000));
             //generate();   //leere methode
