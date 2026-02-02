@@ -170,6 +170,15 @@ public class NPC extends GameAsset {
                 Random r = new Random();
                 if (r.nextInt(100) <= 20) { //npc droppt das item
                     System.out.println(inventar[i]); //an dieser stelle noch etwas anderes hinzufügen --> item wird inventar des spielers hinzugefügt      
+    
+    public String talk() {
+        if (this.quest == false)
+            {System.out.println(greeting);
+            }else{
+            for(int i = 0; i < text.length; i++)
+                {System.out.println(text[i]);
+                 Scanner s = new Scanner(System.in);
+                 s.next(); //wenn enter gedrückt wird, wird nächster text ausgegeben
                 }
             }
 
