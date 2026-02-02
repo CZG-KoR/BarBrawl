@@ -2,19 +2,21 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  *---------------------------------------------------------------------------------------*/
-
 package main;
 
+import assets.actors.NPC;
+import assets.actors.Enemy;
+
 public class Main {
+
     public static void main(String[] args) {
         System.out.println("Hello Remote World!");
-        
-        
+
         // hier werden ausgeteilt
-        
-        
-        
-        
         // hier werden zwilling verglichen...
+    }
+
+    public static Enemy createEnemy(NPC npc) {
+        return new Enemy(npc.getX(), npc.getY(), npc.getImg(), npc.getName(), 10, 20);
     }
 }
